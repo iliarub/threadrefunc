@@ -67,9 +67,12 @@ void *error(void *ch)
 int main(void)
 {
 	pthread_t tid[4];
+	int tmp[4];
 	for(int i=0; i<4;i++)
-		pthread_create(&tid[i], NULL, error, &i);
-
+	{
+		tmp[i]=i;
+		pthread_create(&tid[i], NULL, error, &tmp[i]);
+	}
 	for(int i = 0; i<4; i++)
 		pthread_join(tid[i], NULL);
 	return 1;
