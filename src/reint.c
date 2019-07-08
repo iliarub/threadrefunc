@@ -70,5 +70,7 @@ int main(void)
 	for(int i=0; i<4;i++)
 		pthread_create(&tid[i], NULL, error, &i);
 
+	for(int i = 0; i<4; i++)
+		pthread_join(tid[i], NULL);
 	return 1;
 }
